@@ -31,7 +31,48 @@
 
 // --- Função Principal (main) ---
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
+#include <stdio.h>
+#include <string.h>
+
+struct Territorio {
+    char nome[30];
+    char cor[10];
+    int tropas;
+};
+
 int main() {
+
+// Nível Novato
+struct Territorio territorios[5]; 
+    int i;
+
+    printf("\nCadastro de Territórios\n");
+
+    // Cadastro
+    for (i = 0; i < 5; i++) {
+        printf("\nCadastro do território %d:\n", i + 1);
+        //cadastro de nome
+        printf("Digite o nome do território: ");
+        scanf(" %[^\n]", territorios[i].nome); 
+        //cadastro da cor do exécito
+        printf("Digite a cor do exército: ");
+        scanf(" %[^\n]", territorios[i].cor);
+        //cadastro da quantidade de tropas
+        printf("Digite a quantidade de tropas: ");
+        scanf("%d", &territorios[i].tropas);
+
+    }
+
+    // Exibição
+
+    printf("\n**Lista de cadastros**\n");
+    for (i = 0; i < 5; i++) {
+        printf("\nTerritório %d:\n", i + 1);
+        printf("Nome: %s\n", territorios[i].nome);
+        printf("Cor do exército: %s\n", territorios[i].cor);
+        printf("Quantidade de tropas: %d\n", territorios[i].tropas);
+    }
+
     // 1. Configuração Inicial (Setup):
     // - Define o locale para português.
     // - Inicializa a semente para geração de números aleatórios com base no tempo atual.
